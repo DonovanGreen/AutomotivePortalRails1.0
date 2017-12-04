@@ -6,6 +6,7 @@ class CreateProjects < ActiveRecord::Migration[5.1]
       t.string :start
       t.string :end
       t.boolean :allDay
+      t.string :category_color
 
       t.timestamps
     end

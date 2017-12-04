@@ -44,9 +44,28 @@ class Api::V1::UsersController < ApplicationController
     render json: clientsOnly
   end
 
+  def get_admins
+    users = User.all
+    admins = users.map do |user|
+      if user.admin
+        user
+      end
+    end
+    adminsOnly = admins.compact
+    render json: adminsOnly
+  end
+
   def get_client_project_categories
     user = User.find(params[:user_id])
-    render json: user.projectcategories
+    projectcategories = user.projectcategories
+    projects = user.projectcategories.map do |pc|
+      pc.projects
+    end
+    flattenprojects = projects.flatten
+    render json: {
+      projectcategories: projectcategories,
+      projects: flattenprojects
+    }
   end
 
   private
