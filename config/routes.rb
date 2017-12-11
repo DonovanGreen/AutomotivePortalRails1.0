@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       post '/projects/get_my_projects', to: 'projects#get_my_projects'
       post '/projects/get_admin_projects', to: 'projects#get_admin_projects'
       post '/projects/update_title', to: 'projects#update_title'
+      post '/projects/get_client_comments', to: 'projects#get_client_comments'
     end
   end
 end

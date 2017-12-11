@@ -13,6 +13,9 @@ class Api::V1::ProjectsController < ApplicationController
     admins.map do |admin|
       UserProject.create("user_id": admin, "project_id": project.id)
     end
+    UserMailer.welcome_email.deliver_now
+
+
     render json: {
       id: project.id,
       projectcategory_id: project.projectcategory_id,
@@ -37,6 +40,17 @@ class Api::V1::ProjectsController < ApplicationController
       lastname: user.lastname,
       projects: user.projects
     }
+  end
+
+  def get_client_comments
+    project = Project.find(params[:project_id])
+    clientComments = project.comments.map do |comment|
+      if comment.client_view
+        comment
+      end
+    end
+    clientCommentsCompact = clientComments.compact
+    render json: clientCommentsCompact
   end
 
   def show
