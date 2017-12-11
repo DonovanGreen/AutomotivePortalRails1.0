@@ -13,7 +13,8 @@ class Api::V1::ProjectsController < ApplicationController
     admins.map do |admin|
       UserProject.create("user_id": admin, "project_id": project.id)
     end
-    UserMailer.welcome_email.deliver_now
+
+    # UserMailer.welcome_email.deliver_now
 
 
     render json: {
