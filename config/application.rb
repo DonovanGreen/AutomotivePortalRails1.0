@@ -11,14 +11,14 @@ module RailsAutomotivePortal
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
 
-    config.api_only = true
-
     config.middleware.insert_before 0, Rack::Cors do
-          allow do
-            origins '*'
-            resource '*', :headers => :any, :methods => [:get, :post, :put, :patch, :delete, :options, :head]
-          end
+           allow do
+          origins '*'
+          resource '*', :headers => :any, :methods => [:get, :post, :delete, :patch, :options]
         end
+      end
+      
+   config.api_only = true
 
   end
 end
