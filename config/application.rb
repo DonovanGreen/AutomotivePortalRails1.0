@@ -15,7 +15,7 @@ module RailsAutomotivePortal
 
     config.middleware.insert_before 0, Rack::Cors do
           allow do
-            origins '*'
+            origins 'https://dg-automotive-portal.herokuapp.com/'
             resource '*', :headers => :any, :methods => [:get, :post, :options]
           end
         end
