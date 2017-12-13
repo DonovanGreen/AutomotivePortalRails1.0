@@ -9,6 +9,7 @@ class CreateUsers < ActiveRecord::Migration[5.1]
       t.string :email
       t.boolean :admin
       t.string :color
+      t.string :analytics_id
 
       t.timestamps
     end

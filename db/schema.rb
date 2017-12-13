@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 20171202213218) do
     t.string "email"
     t.boolean "admin"
     t.string "color"
+    t.string "analytics_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
